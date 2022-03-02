@@ -33,7 +33,12 @@ jobs:
       uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
       with:
         arguments: build
-    - uses: actions/upload-artifact@v2
+    - name: Upload to Release
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: Package
-        path: build/libs
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: build/libs
+        asset_name: countmein-${{ github.event.release.tag_name }}.jar
+        asset_content_type: application/java-archive
