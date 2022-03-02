@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'net.zoomiti'
@@ -7,6 +8,13 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+jar {
+    archiveBaseName = 'countmein'
+    manifest {
+        attributes 'Main-Class': 'net.zoomiti.countmein.Main'
+    }
 }
 
 dependencies {
