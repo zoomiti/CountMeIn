@@ -14,13 +14,6 @@ application {
     mainClass = 'net.zoomiti.countmein.Main'
 }
 
-jar {
-    archiveFileName = 'countmein.jar'
-    manifest {
-        attributes 'Main-Class': 'net.zoomiti.countmein.Main'
-    }
-}
-
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'

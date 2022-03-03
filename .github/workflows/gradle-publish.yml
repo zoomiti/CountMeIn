@@ -34,7 +34,8 @@ jobs:
       with:
         arguments: build
     - name: Rename tar to Generic for upload
-      run: mv build/distibutions/*.tar build/distributions/countmein.tar
+      run: mv build/distributions/*.tar build/distributions/countmein.tar
+      continue-on-error: true
     - name: Upload tar to Release
       uses: actions/upload-release-asset@v1.0.1
       env:
@@ -44,6 +45,7 @@ jobs:
         asset_path: build/distributions/*.tar
         asset_name: countmein-${{ github.event.release.tag_name }}.tar
         asset_content_type: application/x-tar
+      continue-on-error: true
     - name: Upload zip to Release
       uses: actions/upload-release-asset@v1.0.1
       env:
