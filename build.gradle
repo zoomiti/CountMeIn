@@ -10,6 +10,10 @@ repositories {
     mavenCentral()
 }
 
+application {
+    mainClass = 'net.zoomiti.countmein.Main'
+}
+
 jar {
     archiveFileName = 'countmein.jar'
     manifest {
